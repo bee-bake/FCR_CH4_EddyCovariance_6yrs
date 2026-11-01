@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below and the associated Zenodo DOI."
+title: "Falling Creek Reservoir: Six Years of Eddy Covariance Methane Flux Analysis"
+authors:
+  - family-names: "Kandel"
+    given-names: "Bibek"
+version: 1.0.0
+date-released: 2026-11-01
+license: MIT
+repository-code: "https://github.com/bee-bake/FCR_CH4_EddyCovariance_6yrs"
