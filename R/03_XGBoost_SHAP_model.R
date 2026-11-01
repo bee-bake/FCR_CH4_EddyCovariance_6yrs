@@ -23,6 +23,7 @@ comp_data <- comp_data %>%
   mutate(daily_CH4 = daily_CH4 * 1386.3) #change scale to mg/m2/d from umol/m2/s
 ####
 
+#Calculate water stability index (Relative Water Stability Index following Marcon et al., 2024)
 # UNESCO freshwater density equation (kg/m3)
 water_density <- function(T) {
   1000 * (1 -
@@ -87,7 +88,7 @@ pacf(
 #prepare data 
 cor_data <- comp_data %>%
   select(temp_1.6m, temp_5m, temp_9m, DOsat_surface, DOsat_9m, DOsat_5m, mean_fDOM, mean_Chla_lag1,
-         WindSpeed_Average_m_s, AirTemp_C_Average, DOY, daily_CH4, sch_stab, thermo.depth, DC_mgL)
+         WindSpeed_Average_m_s, AirTemp_C_Average, DOY, daily_CH4, sch_stab, thermo.depth, TP_ugL)
 
 #correlation matrix
 cor_matrix <- cor(cor_data, use = "pairwise.complete.obs")
