@@ -8,3 +8,4 @@ version: 1.0.0
 date-released: 2026-11-01
 license: MIT
 repository-code: "https://github.com/bee-bake/FCR_CH4_EddyCovariance_6yrs"
+DOI: https://doi.org/10.5281/zenodo.23864704
