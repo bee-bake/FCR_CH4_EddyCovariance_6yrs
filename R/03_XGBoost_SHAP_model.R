@@ -8,10 +8,8 @@ pacman::p_load(tidyverse, lubridate, xgboost, reticulate, corrplot, shapviz, dpl
 #Load daily methane dataset created using the script 02_script_to_create_comp_dataset.R
 set.seed(42)
 
-comp_data <- read_csv(
-  "C:/Users/bibek/Desktop/Bibek_files/5_yrs_FCR_flux_analysis/comp_data.csv",
-  show_col_types = FALSE
-) |>
+url <- "https://raw.githubusercontent.com/bee-bake/FCR_CH4_EddyCovariance_6yrs/main/data/comp_data.csv"
+comp_data <- read_csv(url, show_col_types = FALSE)|>
   mutate(Date = date) |>
   arrange(Date) |>
   mutate(
@@ -53,7 +51,7 @@ comp_data <- comp_data %>%
   )
 
 
-#Read in water chemistry dataset
+#Read in water chemistry dataset from EDI
 carbon <- read_csv("https://pasta.lternet.edu/package/data/eml/edi/199/13/3f09a3d23b7b5dd32ed7d28e9bc1b081?key=yltMpS4UEIk12AvB9L7OL5uRiG0") |> 
   mutate(DateTime = as.POSIXct(strptime(DateTime, "%Y-%m-%d %H:%M", tz="EST"))) |>  
   filter(Reservoir == "FCR" & Site == 50 & Depth_m == 0.1) |> 
